@@ -13,6 +13,9 @@ and open the template in the editor.
         <link href="../css/bootstrap.css" rel="stylesheet">
     </head>
     <body>
+
+
+  <div class="container">
         <?php
         session_start();
         $nomeAdm = $_SESSION['nome'];
@@ -20,10 +23,9 @@ and open the template in the editor.
         $idAdm = $_SESSION['idA'];
 
         if (isset($nomeAdm) and isset($senhaAdm)) {
-            ?>
+        ?>
 
-            <div class="col-md-12"> 
-                <nav class="navbar navbar-default navbar-fixed-top">
+                <nav class="navbar navbar-default">
                     <ul class="nav nav-tabs">
                         <li role="presentation" ><a href="home.php">Home</a></li>
                         <li role="presentation" class="active"><a href="#">Avaliar</a></li>
@@ -31,7 +33,7 @@ and open the template in the editor.
                                 Funcionarios</a></li>
                         <li role="presentation" ><a href="addFuncionarios.php">Cadastrar
                                 Funcionarios</a></li>
-                        <div  class="pull-right">
+                        <div  class="pull-right" style="margin-top: 10px; margin-right: 10px;">
                             <div class="btn-group" role="group">
 
 
@@ -42,20 +44,21 @@ and open the template in the editor.
                                 </a>
                                 <ul class="dropdown-menu pull-right">
                                     <li><a href="#"><i class="glyphicon glyphicon-off"></i> Logoff</a></li>
-                                </ul>                                        
+                                </ul>
                             </div>
                         </div>
                     </ul>
+                </nav>
 
 
-
+                <div class="panel-body" style="background-color: #f5f5f5;">
                     <?php
                     include '../dao/AdministradorDAO.php';
                     include '../dao/FuncionarioDAO.php';
 
                     $adm = new administrador();
                     $id = null;
-                    
+
 
                     $func = new funcionario();
 
@@ -81,7 +84,7 @@ and open the template in the editor.
                                             <?php
                                             $name = 0;
                                             while ($row = mysqli_fetch_assoc($res)) {
-                                                ?> 
+                                                ?>
                                                 <tr>
                                                     <td><?php echo $row['nome'] ?></td>
                                                     <td><?php echo $row['funcao'] ?></td>
@@ -126,7 +129,7 @@ and open the template in the editor.
                             </h1>
                             <?php
                         }
-                    
+
                     ?>
                     <?php
                 } else {
@@ -140,8 +143,9 @@ and open the template in the editor.
                     <?php
                 }
                 ?>
-            </nav>
-        </div> 
+
+        </div>
+      </div>
 
         <!-- jQuery (necessario para os plugins Javascript do Bootstrap) -->
         <script src="../js/jquery-3.1.1.js"></script>

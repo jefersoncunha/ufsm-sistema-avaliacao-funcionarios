@@ -13,17 +13,19 @@ and open the template in the editor.
         <link href="../css/bootstrap.css" rel="stylesheet">
     </head>
     <body>
-       
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <?php
-            session_start();
-            $nomeAdm = $_SESSION['nome'];
-            $senhaAdm = $_SESSION['senha'];
-            $_SESSION['idA'];
-            if (isset($nomeAdm) and isset($senhaAdm)) {
-                ?>
-                <div class="col-md-12"> 
+			<div class="container">
 
+
+        <?php
+        session_start();
+        $nomeAdm = $_SESSION['nome'];
+        $senhaAdm = $_SESSION['senha'];
+        $idAdm = $_SESSION['idA'];
+
+        if (isset($nomeAdm) and isset($senhaAdm)) {
+        ?>
+              <nav class="navbar navbar-default">
+                <div class="container-fluid">
                     <ul class="nav nav-tabs">
                         <li role="presentation" ><a href="home.php">Home</a></li>
                         <li role="presentation"><a href="avaliar.php">Avaliar</a></li>
@@ -31,10 +33,8 @@ and open the template in the editor.
                                 Funcionarios</a></li>
                         <li role="presentation" class="active"><a href="#">Cadastrar
                                 Funcionarios</a></li>
-                        <div  class="pull-right">
+                        <div  class="pull-right" style="margin-top: 10px; margin-right: 10px;">
                             <div class="btn-group" role="group">
-
-
                                 <a class="dropdown-toggle" data-toggle="dropdown" >
                                     <div class="glyphicon glyphicon-user  ">
                                         <strong><?php echo $_SESSION['nome']; ?></strong>
@@ -42,26 +42,26 @@ and open the template in the editor.
                                 </a>
                                 <ul class="dropdown-menu pull-right">
                                     <li><a href="#"><i class="glyphicon glyphicon-off"></i> Logoff</a></li>
-                                </ul>                                        
+                                </ul>
                             </div>
                         </div>
                     </ul>
-                </div> 
-
-
+                  </div><!-- /.container-fluid -->
+              </nav>
+              <div class="panel-body" style="background-color: #f5f5f5;">
                 <form action="../dao/Controller.php" method="post">
                     <div class="col-lg-12">                    <!-- area de campos do form -->
                         <input type="hidden" name="operacao" value="cadastroFun">
                         <div class="row">
                             <div class="form-group col-md-4">
-                                <label for="nome">Nome</label> 
-                                <input type="text"class="form-control" id="nome" 
+                                <label for="nome">Nome</label>
+                                <input type="text"class="form-control" id="nome"
                                        name="nome" placeholder="Ex.Pedro">
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-4">
-                                <label for="senha">Função</label> 
+                                <label for="senha">Função</label>
                                 <input type="text"class="form-control" id="funcao" name="funcao" placeholder="Ex.Atendente">
                             </div>
                         </div>
@@ -79,20 +79,19 @@ and open the template in the editor.
                         </div>
                     </div>
                 </form>
+              </div>
 
-            </nav>
-            } else {
-            ?>
-            <h1>
-                <div class="alert alert-info">
-                    <strong>Erro Login!</strong> <a href="../index.php">Click aqui</a> para fazer login
-                </div>
-            </h1>
+  <?
+  } else {
+  ?>
+      <div class="alert alert-info">
+        <h1><strong>Erro Login!</strong> <a href="../index.php">Click aqui</a> para fazer login</h1>
+      </div>
+  <?php
+  }
+  ?>
 
-            <?php
-        }
-        ?>
-        
+        </div>
         <script src="../js/jquery-3.1.1.js"></script>
          <script src="../js/jquery-mask.js"></script>
         <script src="../js/bootstrap.min.js"></script>

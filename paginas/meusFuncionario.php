@@ -16,6 +16,7 @@ and open the template in the editor.
         <script src="../js/meuJS.js"></script>
     </head>
     <body>
+      <div class="container">
         <?php
         session_start();
         $nomeAdm = $_SESSION['nome'];
@@ -25,9 +26,9 @@ and open the template in the editor.
 
         if (isset($nomeAdm) and isset($senhaAdm)) {
             ?>
-            
 
-                <nav class="navbar navbar-default navbar-fixed-top">
+
+                <nav class="navbar navbar-default">
 
                     <ul class="nav nav-tabs">
                         <li role="presentation" ><a href="home.php">Home</a></li>
@@ -36,7 +37,7 @@ and open the template in the editor.
                                 Funcionarios</a></li>
                         <li role="presentation" ><a href="addFuncionarios.php">Cadastrar
                                 Funcionarios</a></li>
-                        <div  class="pull-right">
+                        <div  class="pull-right" style="margin-top: 10px; margin-right: 10px;">
                             <div class="btn-group" role="group">
 
 
@@ -47,11 +48,13 @@ and open the template in the editor.
                                 </a>
                                 <ul class="dropdown-menu pull-right">
                                     <li><a href="#"><i class="glyphicon glyphicon-off"></i> Logoff</a></li>
-                                </ul>                                        
+                                </ul>
                             </div>
                         </div>
                     </ul>
 
+                </nav>
+                <div class="panel-body" style="background-color: #f5f5f5;">
                     <form method="POST" action="#">
                         <div class="form-group">
                             <input type="text" class="form-control" name="pesquisa" id="pesquisa" placeholder="Pesquisar" value="">
@@ -83,7 +86,7 @@ and open the template in the editor.
                                         <?php
                                         while ($row = mysqli_fetch_assoc($res)) {
                                             $codigo = $row['id'];
-                                            ?> 
+                                            ?>
                                         <input type="hidden" name="codigo" value="<?php echo $codigo ?>">
                                         <tr>
                                             <td><?php echo $row['nome'] ?></td>
@@ -129,11 +132,11 @@ and open the template in the editor.
                 ?>
                 <ul class="resultado">
                 </ul>
-                    
-                    
-                    
-            </nav>
 
+              </div>
+
+              </div>
+            <!-- END CONTAINER -->
 
     </body>
 </html>

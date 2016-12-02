@@ -42,17 +42,17 @@
                     <input type="hidden" name="operacao" value="editarFun">
                     <input type="hidden" name="codigo" value="<?php echo $codigo; ?>">
 
-                    <div class="col-lg-12">                
+                    <div class="col-lg-10">
                         <div class="row">
                             <div class="form-group col-md-3">
-                                <label for="nome">Nome</label> 
-                                <input type="text"class="form-control" id="nome" 
+                                <label for="nome">Nome</label>
+                                <input type="text"class="form-control" id="nome"
                                        name="nome" value="<?php echo $nome; ?>">
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-3">
-                                <label for="senha">Função</label> 
+                                <label for="senha">Função</label>
                                 <input type="text"class="form-control" id="funcao" name="funcao" value="<?php echo $funcao; ?>">
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                 </form>
-                <hr />
+                <hr/>
             </div>
         </div>
 

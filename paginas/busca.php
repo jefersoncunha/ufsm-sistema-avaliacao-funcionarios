@@ -10,6 +10,7 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
+      <div class="container">
         <div class="row">
             <h2><label>Resultado da Busca</label></h2>
             <?php
@@ -76,5 +77,9 @@ and open the template in the editor.
 
 
         </div>
+
+
+      </div>
+      <!-- END CONTAINER -->
     </body>
 </html>
