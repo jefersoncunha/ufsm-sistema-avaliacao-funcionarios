@@ -17,6 +17,7 @@
             //inicialização objetos
             $adm = new administrador();
             $func = new funcionario();
+            $ava = new Avaliacao;
 
             switch ($operacao) {
                 case "cadastroAdm":
@@ -46,6 +47,13 @@
                     echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../paginas/home.php'>";
                     break;
 
+                case "cadastroNotas":
+                    $ava->idFuncionario = $_POST["idFuncionario"];
+                    $ava->nota = $_POST["nota"];;
+                    $ava->inserir();
+                    echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../paginas/home.php'>";
+                    break;
+
                 case "logar":
                     $senhaA = $_POST["senhaA"];
                     $nomeA = $_POST["nomeA"];
@@ -71,7 +79,7 @@
                             ?>
                             <h1>
                                 <div class="alert alert-info">
-                                    <strong>Senha Errada!</strong> 
+                                    <strong>Senha Errada!</strong>
                                     <a href="../index.php">Clique aqui</a> para fazer login
                                 </div>
                             </h1>"
@@ -81,7 +89,7 @@
                         ?>
                         <h1>
                             <div class="alert alert-info">
-                                <strong>Nome Errado!</strong> 
+                                <strong>Nome Errado!</strong>
                                 <a href="../index.php">Clique aqui</a> para fazer login
                             </div>
                         </h1>
@@ -107,14 +115,14 @@
                     $_SESSION['mensagem'] = 'Funcionario alterado com sucesso';
                     $_SESSION['local'] = '../paginas/meusFuncionario.php';
 
-                    echo "<meta http-equiv='refresh' 
+                    echo "<meta http-equiv='refresh'
 					content='0;url=../paginas/jquerymodal.php?numero=1'>";
                     break;
 
                 case "Excluir"://botao de meusFuncionarios.php
                     $codigo = $_POST["codigo"];
 
-                    echo "<meta http-equiv='refresh' 
+                    echo "<meta http-equiv='refresh'
 	            content='0;url=../paginas/jquerymodal.php?numero=2&codigo=$codigo'>";
                     break;
 
@@ -127,10 +135,10 @@
 
                     $_SESSION['mensagem'] = 'Funcionario excluído com sucesso';
                     $_SESSION['local'] = '../paginas/meusFuncionario.php';
-                    echo "<meta http-equiv='refresh' 
+                    echo "<meta http-equiv='refresh'
 					content='0;url=../paginas/jquerymodal.php?numero=1'>";
                     break;
-                
+
                 case "cadastroNotas":
                     session_start();
                     $codigo = $_POST["codigo"];
@@ -138,7 +146,7 @@
 
                     $_SESSION['mensagem'] = 'Funcionario excluído com sucesso';
                     $_SESSION['local'] = '../paginas/meusFuncionario.php';
-                    echo "<meta http-equiv='refresh' 
+                    echo "<meta http-equiv='refresh'
 					content='0;url=../paginas/jquerymodal.php?numero=1'>";
                     break;
             }

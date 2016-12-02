@@ -90,19 +90,19 @@ and open the template in the editor.
                                                     <td><?php echo $row['funcao'] ?></td>
                                                     <td><?php echo $row['fone'] ?></td>
                                                     <td>
-                                                        <input required="" name="<?php echo $name ?>" id="<?php echo $name ?>" value="1" type="radio">
+                                                        <input required="" name="nota"  value="1" type="radio">
                                                     </td>
                                                     <td>
-                                                        <input required="" name="<?php echo $name ?>" id="<?php echo $name ?>" value="2" type="radio">
+                                                        <input required="" name="nota"  value="2" type="radio">
                                                     </td>
                                                     <td>
-                                                        <input required="" name="<?php echo $name ?>" id="<?php echo $name ?>" value="3" type="radio">
+                                                        <input required="" name="nota" value="3" type="radio">
                                                     </td>
                                                     <td>
-                                                        <input required="" name="<?php echo $name ?>" id="<?php echo $name ?>" value="4" type="radio">
+                                                        <input required="" name="nota" value="4" type="radio">
                                                     </td>
                                                     <td>
-                                                        <input required="" name="<?php echo $name ?>" id="<?php echo $name ?>" value="5" type="radio">
+                                                        <input required="" name="nota" value="5" type="radio">
                                                     </td>
                                                 </tr>
                                                 <?php
@@ -114,8 +114,7 @@ and open the template in the editor.
 
                                 </div>
                                 <div>
-                                    <button type="submit" class="btn btn-primary" value="cadastroNotas">Adicionar</button>
-
+                                    <button type="submit" class="btn btn-primary" value="avaliacaoForm">Adicionar</button>
                                 </div>
 
                             </form>
