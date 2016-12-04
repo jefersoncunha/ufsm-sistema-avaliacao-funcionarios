@@ -41,8 +41,60 @@ and open the template in the editor.
                   </ul>
                 </div><!-- /.container-fluid -->
             </nav>
-            <div class="panel-body">
+            <div class="panel-body" style="background-color: #f5f5f5;">
+              <?php
 
+              include '../dao/FuncionarioDAO.php';
+
+              $func = new funcionario();
+
+              $res = $func->ranking();
+              if ($res->num_rows > 0) {//verifiaca se possui funcionarios
+                  ?>
+                  <form action="../dao/Controller.php" method="post">
+
+                      <div class="table-responsive col-md-12" id="tab">
+                          <table class="table table-striped" cellspacing="0" cellpadding="0">
+                              <thead>
+                                  <tr>
+                                      <th>Nome</th>
+                                      <th>Função</th>
+                                      <th>Fone</th>
+                                      <th>Nota</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <?php
+                                  while ($row = mysqli_fetch_assoc($res)) {
+                                      $codigo = $row['id'];
+                                      ?>
+                                  <input type="hidden" name="codigo" value="<?php echo $codigo ?>">
+                                  <tr>
+                                      <td><?php echo $row['nome'] ?></td>
+                                      <td><?php echo $row['funcao'] ?></td>
+                                      <td><?php echo $row['fone'] ?></td>
+                                      <td><?php echo $row['nota'] ?></td>
+                                  </tr>
+                                  <?php
+                              }
+                              ?>
+                              </tbody>
+                          </table>
+
+                      </div>
+                  </form>
+
+                  <?php
+              } else {
+                  ?>
+                  <h1>
+                      <div class="alert alert-info">
+                          <strong>Info!</strong> Não há Funcionários
+                      </div>
+                  </h1>
+                  <?php
+              }
+              ?>
 
                 <?php
             } else {

@@ -128,7 +128,7 @@ and open the template in the editor.
                             ?>
                             <h1>
                                 <div class="alert alert-info">
-                                    <strong>Info!</strong> Não há Funcionários
+                                    <strong>Info!</strong> Não há funcionários para avaliar!
                                 </div>
                             </h1>
                             <?php

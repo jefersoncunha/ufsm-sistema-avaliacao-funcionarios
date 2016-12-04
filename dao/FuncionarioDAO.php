@@ -26,6 +26,20 @@
             $bd->fechar();
         }
 
+        function ranking() {
+            $bd = new ConexaoBD();
+            $bd->conectar();
+            $sql = "SELECT f.id, f.nome, f.funcao, f.fone, a.idFuncionario, a.nota
+                    FROM funcionario f, avaliacao a
+                    WHERE f.id=a.idFuncionario
+                    ORDER BY nota DESC
+                    LIMIT 0,3;
+                  ";
+
+            return $bd->query($sql);
+            $bd->fechar();
+        }
+
         function mostrarAvaliacao($id) {
             $bd = new ConexaoBD();
             $bd->conectar();
