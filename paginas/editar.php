@@ -21,7 +21,7 @@
             <hr />
             <div id="top" class="row form-group">
 
-                <form action="../dao/controller.php" method="post">
+                <form action="../dao/controller-dao.php" method="post">
                     <?php
                     include "../dao/FuncionarioDAO.php";
                     include '../dao/AdministradorDAO.php';

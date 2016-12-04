@@ -70,7 +70,7 @@ and open the template in the editor.
                     $res = $func->mostrar($idAdm);
                     if ($res->num_rows > 0) {//verifiaca se possui funcionarios
                         ?>
-                        <form action="../dao/controller.php" method="post">
+                        <form action="../dao/controller-dao.php" method="post">
 
                             <div class="table-responsive col-md-12" id="tab">
                                 <table class="table table-striped" cellspacing="0" cellpadding="0">
