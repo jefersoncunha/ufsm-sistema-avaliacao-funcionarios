@@ -49,7 +49,7 @@ and open the template in the editor.
                   </div><!-- /.container-fluid -->
               </nav>
               <div class="panel-body" style="background-color: #f5f5f5;">
-                <form action="../dao/controller-dao.php" method="post">
+                <form action="../dao/Controller.php" method="post">
                     <div class="col-lg-12">                    <!-- area de campos do form -->
                         <input type="hidden" name="operacao" value="cadastroFun">
                         <div class="row">

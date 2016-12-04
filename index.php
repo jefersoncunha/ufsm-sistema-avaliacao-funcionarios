@@ -12,7 +12,7 @@
     </head>
     <body>
 
-        <form action="dao/controller-dao.php" method="post">
+        <form action="dao/Controller.php" method="post">
      <input type="hidden" name="operacao" value="logar">
 
 

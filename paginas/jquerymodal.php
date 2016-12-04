@@ -54,7 +54,7 @@
                             </div>
 
                             <div class="modal-footer">
-                                <form class="form-horizontal" role="form" method="post" action="../dao/controller-dao.php">
+                                <form class="form-horizontal" role="form" method="post" action="../dao/Controller.php">
                                     <input type="hidden" name="codigo" value="<?php echo $codigo; ?>">
                                     <input type="submit" class="btn btn-danger" name="operacao" value="Sim"/>
                                     <a class="btn btn-primary" href="meusFuncionario.php">Não</a>
