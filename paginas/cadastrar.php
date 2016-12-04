@@ -18,7 +18,7 @@
                     <strong><h2>Cadastro</h2></strong>
                 </div>
             </div>
-            <form action="../dao/Controller.php" method="post">
+            <form action="../dao/controller-dao.php" method="post">
                 <input type="hidden" name="operacao" value="cadastroAdm">
 
 

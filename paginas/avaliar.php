@@ -167,7 +167,7 @@ and open the template in the editor.
 
             var status = $('#status');
 
-            $.post("../dao/controller.php",$(this).serialize(),
+            $.post("../dao/controller-dao.php",$(this).serialize(),
               function(resposta){
                 status.slideDown();
                 status.removeClass('alert alert-danger');
