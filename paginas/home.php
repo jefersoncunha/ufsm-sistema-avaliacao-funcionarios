@@ -42,6 +42,8 @@ and open the template in the editor.
                 </div><!-- /.container-fluid -->
             </nav>
             <div class="panel-body">
+
+
                 <?php
             } else {
                 ?>

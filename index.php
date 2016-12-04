@@ -12,10 +12,10 @@
     </head>
     <body>
 
-        <form action="dao/Controller.php" method="post">
+        <form action="dao/controller.php" method="post">
      <input type="hidden" name="operacao" value="logar">
 
-        
+
 
         <div class="container">
             <label><b>Nome</b></label>
@@ -37,4 +37,3 @@
     <script src="js/jquery-3.1.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </body>
-

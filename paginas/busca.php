@@ -27,7 +27,7 @@ and open the template in the editor.
 
             if ($res->num_rows > 0) {
                 ?>
-                <form action="../dao/Controller.php" method="post">
+                <form action="../dao/controller.php" method="post">
                     <div class="table-responsive col-md-12">
                         <table class="table table-striped" cellspacing="0" cellpadding="0">
                             <thead>
