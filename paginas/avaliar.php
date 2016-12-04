@@ -62,9 +62,9 @@ and open the template in the editor.
 
                     $func = new funcionario();
 
-                        $res = $func->mostrar($idAdm);
+                        $res = $func->mostrarAvaliacao($idAdm);
                     if ($res->num_rows>0) {//verifiaca se possui funcionarios                            ?>
-                            <form name="formRadio" method="post">
+
 
                                 <div class="table-responsive col-md-12">
                                     <table class="table table-striped" cellspacing="0" cellpadding="0">
@@ -73,51 +73,56 @@ and open the template in the editor.
                                                 <th>Nome</th>
                                                 <th>Função</th>
                                                 <th>Fone</th>
-                                                <th>1</th>
-                                                <th>2</th>
-                                                <th>3</th>
-                                                <th>4</th>
-                                                <th>5</th>
+                                                <th>Nota</th>
+                                                <th>Avaliar</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
                                             $name = 0;
+
                                             while ($row = mysqli_fetch_assoc($res)) {
                                                 ?>
+                                              <form  id="form<?=$row['id']?>"  class="formAvaliacao" method="post">
                                                 <tr>
                                                     <td><?php echo $row['nome'] ?></td>
                                                     <td><?php echo $row['funcao'] ?></td>
                                                     <td><?php echo $row['fone'] ?></td>
                                                     <td>
-                                                        <input required="" name="nota"  value="1" type="radio">
+                                                      <select name="nota">
+                                                        <option selected="selected" value="">Selecione uma Nota</option>
+                                                        <option value="0">0</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                      </select>
                                                     </td>
                                                     <td>
-                                                        <input required="" name="nota"  value="2" type="radio">
-                                                    </td>
-                                                    <td>
-                                                        <input required="" name="nota" value="3" type="radio">
-                                                    </td>
-                                                    <td>
-                                                        <input required="" name="nota" value="4" type="radio">
-                                                    </td>
-                                                    <td>
-                                                        <input required="" name="nota" value="5" type="radio">
+                                                      <input type="hidden" name="idFuncionario" value="<?=$row['id']?>"/>
+                                                      <input type="hidden" name="operacao" value="cadastroNotas"/>
+                                                      <input id="<?=$row['id']?>" type="submit" class="button_send btn btn-primary" value="Avaliar">
                                                     </td>
                                                 </tr>
+                                              </form>
+
                                                 <?php
                                                 $name++;
                                             }
                                             ?>
                                         </tbody>
                                     </table>
-
+                                    <div id="status" class=""></div>
                                 </div>
                                 <div>
-                                    <button type="submit" class="btn btn-primary" value="avaliacaoForm">Adicionar</button>
+
+
+
                                 </div>
 
-                            </form>
+
                             <?php
                         } else {
                             ?>
@@ -150,5 +155,36 @@ and open the template in the editor.
         <script src="../js/jquery-3.1.1.js"></script>
         <script src="../js/bootstrap.min.js"></script>
         <script src="../js/meuJS.js"></script>
+        <script>
+
+      $(document).ready(function () {
+
+
+        $(".formAvaliacao").submit(function(event) {
+            event.preventDefault();
+
+            console.log(event.target.id);
+
+            var status = $('#status');
+
+            $.post("../dao/controller.php",$(this).serialize(),
+              function(resposta){
+                status.slideDown();
+                status.removeClass('alert alert-danger');
+                status.addClass('alert alert-success');
+                status.html('<strong> Cadastrado com sucesso </strong>');
+
+                setTimeout(function(){
+                  status.hide();
+                  location.reload();
+                },2000);
+              }
+            );
+
+
+        });
+      });
+        </script>
+
     </body>
 </html>

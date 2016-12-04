@@ -12,6 +12,7 @@
             <?php
             include './AdministradorDAO.php';
             include './FuncionarioDAO.php';
+            include './AvaliacaoDAO.php';
 
             $operacao = $_POST["operacao"]; //operação input
             //inicialização objetos
@@ -20,7 +21,8 @@
             $ava = new Avaliacao;
 
             switch ($operacao) {
-                case "cadastroAdm":
+
+              case "cadastroAdm":
                     $nome = $_POST["nome"];
                     $senha = $_POST["senha"];
 
@@ -51,7 +53,7 @@
                     $ava->idFuncionario = $_POST["idFuncionario"];
                     $ava->nota = $_POST["nota"];;
                     $ava->inserir();
-                    echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=../paginas/home.php'>";
+                    echo"ok";
                     break;
 
                 case "logar":

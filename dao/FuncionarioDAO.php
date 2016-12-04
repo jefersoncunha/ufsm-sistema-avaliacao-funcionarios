@@ -26,6 +26,21 @@
             $bd->fechar();
         }
 
+        function mostrarAvaliacao($id) {
+            $bd = new ConexaoBD();
+            $bd->conectar();
+            $sql = "SELECT *
+                    FROM funcionario
+                    WHERE id NOT IN
+                    ( SELECT idFuncionario
+                      FROM avaliacao
+                    )
+                  ";
+
+            return $bd->query($sql);
+            $bd->fechar();
+        }
+
 
         function excluir($id) {
             $bd = new ConexaoBD();

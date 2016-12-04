@@ -1,7 +1,5 @@
 <?php
 
-include 'ConexaoBD.php';
-
 class Avaliacao {
 
     public $idFuncionario;
