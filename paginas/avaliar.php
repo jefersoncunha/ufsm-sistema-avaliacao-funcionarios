@@ -102,7 +102,7 @@ and open the template in the editor.
                                                     </td>
                                                     <td>
                                                       <input type="hidden" name="idFuncionario" value="<?=$row['id']?>"/>
-                                                      <input type="hidden" name="operacao" value="cadastroNotas"/>
+                                                      <input type="hidden" name="operacao" value="avaliar"/>
                                                       <input id="<?=$row['id']?>" type="submit" class="button_send btn btn-primary" value="Avaliar">
                                                     </td>
                                                 </tr>
@@ -167,7 +167,7 @@ and open the template in the editor.
 
             var status = $('#status');
 
-            $.post("../dao/controller-dao.php",$(this).serialize(),
+            $.post("../dao/controller-ajax.php",$(this).serialize(),
               function(resposta){
                 status.slideDown();
                 status.removeClass('alert alert-danger');
